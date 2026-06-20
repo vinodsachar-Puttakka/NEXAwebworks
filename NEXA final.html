@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>NEXA WebWorks — Professional Business Websites for Growing Businesses</title>
+<meta name="description" content="NEXA WebWorks builds professional websites for hair clinics, dentists, interior designers and builders across India. Premium design. Clear process. Real results."/>
+<meta name="keywords" content="business website design India, hair clinic website, dentist website, interior designer website, builder website India"/>
+<meta property="og:title" content="NEXA WebWorks — Professional Business Websites"/>
+<meta property="og:description" content="We build professional websites for local businesses that want to make a strong first impression online."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+body{font-family:'Inter',system-ui,sans-serif;background:#fff;color:#08172E;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{border:none;background:none;cursor:pointer;font:inherit}
+ul,ol{list-style:none}
+
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════════════════ */
+:root{
+  --navy-deep:    #08172E;
+  --navy-mid:     #0F2444;
+  --navy-card:    #132B52;
+  --navy-light:   #1C3A68;
+  --gold:         #C49A3C;
+  --gold-light:   #E8B86D;
+  --gold-pale:    #F5EDD9;
+  --white:        #FFFFFF;
+  --warm:         #F8F6F1;
+  --slate:        #EEF2F8;
+  --muted:        #64748B;
+  --border-l:     rgba(12,31,63,0.09);
+  --border-d:     rgba(255,255,255,0.09);
+  --shadow-sm:    0 1px 3px rgba(0,0,0,.05),0 4px 16px rgba(12,31,63,.06);
+  --shadow-md:    0 2px 6px rgba(0,0,0,.06),0 12px 40px rgba(12,31,63,.10);
+  --shadow-lg:    0 4px 8px rgba(0,0,0,.08),0 24px 64px rgba(12,31,63,.16);
+  --shadow-xl:    0 8px 16px rgba(0,0,0,.10),0 40px 80px rgba(12,31,63,.22);
+  --radius-sm:    8px;
+  --radius-md:    12px;
+  --radius-lg:    16px;
+  --radius-xl:    20px;
+  --radius-2xl:   24px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════════════════════ */
+.f-display{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-0.02em}
+.f-display em{font-style:italic;color:var(--gold-light)}
+.f-heading{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.12;letter-spacing:-0.02em}
+.f-label{
+  font-family:'Inter',sans-serif;font-size:.6875rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gold)
+}
+.f-body{font-size:.9375rem;line-height:1.72;color:var(--muted)}
+.f-small{font-size:.8125rem;line-height:1.6}
+
+/* ═══════════════════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════════════════ */
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.sec{padding:112px 0}
+.sec-sm{padding:80px 0}
+
+.sh{margin-bottom:64px}
+.sh .f-label{display:block;margin-bottom:14px}
+.sh h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-0.025em;line-height:1.1;color:var(--navy-deep);margin-bottom:18px}
+.sh p{font-size:.9375rem;color:var(--muted);line-height:1.72;max-width:520px}
+.sh-c{text-align:center}
+.sh-c p{margin:0 auto}
+.sh-d h2{color:#fff}
+.sh-d p{color:rgba(255,255,255,.5)}
+.sh-d .f-label{color:rgba(196,154,60,.85)}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.65,0,1),transform .7s cubic-bezier(.2,.65,0,1)}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+
+/* ═══════════════════════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════════════════════ */
+#topnav{
+  position:fixed;top:0;left:0;right:0;z-index:9000;
+  transition:background .3s,box-shadow .3s,border-color .3s;
+  border-bottom:1px solid transparent;
+}
+#topnav.scrolled{
+  background:rgba(8,23,46,.96);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-color:rgba(196,154,60,.14);
+  box-shadow:0 4px 40px rgba(0,0,0,.3);
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 32px;
+  height:68px;display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  font-family:'Inter',sans-serif;font-weight:700;font-size:1.0625rem;
+  letter-spacing:-.025em;color:#fff;display:flex;align-items:baseline;gap:1px;
+  transition:opacity .2s;
+}
+.nav-logo:hover{opacity:.85}
+.nav-logo .nx{font-weight:800}
+.nav-logo .dot{color:var(--gold);font-size:1.2em;line-height:0;position:relative;top:2px}
+.nav-links{display:flex;gap:32px}
+.nav-links a{
+  font-size:.8125rem;font-weight:500;color:rgba(255,255,255,.6);
+  transition:color .2s;position:relative;padding-bottom:2px;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+  background:var(--gold-light);transition:width .25s;
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:#fff}
+.nav-links a.active::after{width:100%}
+
+.nav-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#25D366;color:#fff;
+  font-size:.8125rem;font-weight:700;
+  padding:9px 20px;border-radius:9px;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 2px 12px rgba(37,211,102,.25);
+}
+.nav-btn:hover{background:#20bd5a;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,211,102,.35)}
+
+.hamburger{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mob-menu{
+  display:none;flex-direction:column;
+  background:var(--navy-deep);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.mob-menu.open{display:flex}
+.mob-menu a{
+  padding:14px 32px;font-size:.9375rem;font-weight:500;
+  color:rgba(255,255,255,.7);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:color .2s,background .2s;
+}
+.mob-menu a:hover{color:#fff;background:rgba(255,255,255,.03)}
+.mob-menu .mob-cta{
+  margin:16px 32px 20px;padding:14px;text-align:center;
+  background:#25D366;color:#fff;
+  border-radius:10px;font-weight:700;
+  border-bottom:none;
+}
+.mob-menu .mob-cta:hover{background:#20bd5a}
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:.9375rem;
+  padding:14px 28px;border-radius:11px;
+  transition:all .22s cubic-bezier(.2,.65,0,1);
+  cursor:pointer;white-space:nowrap;
+}
+.btn-navy{
+  background:var(--navy-deep);color:#fff;
+  box-shadow:0 2px 8px rgba(8,23,46,.25);
+}
+.btn-navy:hover{background:var(--navy-mid);transform:translateY(-2px);box-shadow:0 8px 28px rgba(8,23,46,.3)}
+.btn-wa{
+  background:#25D366;color:#fff;
+  box-shadow:0 2px 12px rgba(37,211,102,.28);
+}
+.btn-wa:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.38)}
+.btn-outline{
+  background:transparent;color:var(--navy-deep);
+  border:1.5px solid rgba(8,23,46,.25);
+}
+.btn-outline:hover{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep);transform:translateY(-2px)}
+.btn-outline-light{
+  background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);
+  border:1.5px solid rgba(255,255,255,.15);backdrop-filter:blur(8px);
+}
+.btn-outline-light:hover{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+.btn-sm{padding:10px 20px;font-size:.8125rem;border-radius:9px}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════ */
+#hero{
+  min-height:100vh;
+  background:var(--navy-deep);
+  display:flex;align-items:center;
+  padding-top:68px;position:relative;overflow:hidden;
+}
+
+/* Abstract layered background */
+.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+
+/* Mesh gradient base */
+.hero-mesh{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 65% 40%, rgba(28,58,104,.55) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 80% at 20% 70%, rgba(19,43,82,.45) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 80% 80%, rgba(196,154,60,.06) 0%, transparent 55%),
+    linear-gradient(160deg, #08172E 0%, #0D1F3C 40%, #091929 100%);
+}
+
+/* Fine grid lines */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(196,154,60,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,154,60,.035) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 90% 90% at 60% 50%, black 30%, transparent 100%);
+}
+
+/* Glow orbs */
+.hero-orb{position:absolute;border-radius:50%;filter:blur(72px);pointer-events:none}
+.orb-1{
+  width:500px;height:500px;top:-120px;right:-80px;
+  background:radial-gradient(circle, rgba(28,58,104,.7) 0%, transparent 70%);
+}
+.orb-2{
+  width:380px;height:380px;bottom:-80px;left:-60px;
+  background:radial-gradient(circle, rgba(19,43,82,.6) 0%, transparent 70%);
+}
+.orb-3{
+  width:280px;height:280px;top:40%;right:25%;
+  background:radial-gradient(circle, rgba(196,154,60,.08) 0%, transparent 70%);
+}
+
+/* SVG noise texture */
+.hero-noise{
+  position:absolute;inset:0;opacity:.4;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+
+.hero-inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:56px;align-items:center;
+  padding:88px 0 96px;
+}
+
+/* Hero copy */
+.hero-copy{}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(196,154,60,.1);
+  border:1px solid rgba(196,154,60,.25);
+  border-radius:100px;padding:6px 16px 6px 12px;
+  margin-bottom:32px;
+}
+.eyebrow-pulse{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--gold-light);flex-shrink:0;
+  animation:pulse 2.8s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(232,184,109,.4)}50%{opacity:.5;box-shadow:0 0 0 5px rgba(232,184,109,0)}}
+.hero-eyebrow span{
+  font-size:.6875rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold-light);
+}
+
+.hero-h1{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:clamp(2.6rem,4.5vw,4rem);
+  font-weight:400;line-height:1.07;
+  letter-spacing:-.025em;color:#fff;
+  margin-bottom:24px;
+}
+.hero-h1 em{font-style:italic;color:var(--gold-light)}
+
+.hero-sub{
+  font-size:1.0625rem;line-height:1.72;
+  color:rgba(255,255,255,.55);
+  max-width:430px;margin-bottom:40px;
+}
+
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:52px}
+
+.hero-trust{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.hero-trust-label{font-size:.75rem;color:rgba(255,255,255,.3);font-weight:500;margin-right:4px}
+.trust-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:100px;padding:5px 12px;
+  font-size:.75rem;font-weight:500;color:rgba(255,255,255,.55);
+  backdrop-filter:blur(4px);
+}
+.trust-chip span{font-size:.85rem}
+
+/* ── Hero Visual Composition ── */
+.hero-visual{
+  position:relative;
+  display:flex;justify-content:center;align-items:center;
+  height:560px;
+}
+
+/* Glow ring behind mockup */
+.mockup-glow{
+  position:absolute;
+  width:420px;height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(28,58,104,.45) 0%, transparent 68%);
+  filter:blur(32px);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+
+/* Desktop browser mockup */
+.desk-mockup{
+  position:relative;z-index:3;
+  width:100%;max-width:420px;
+  background:#0F1D35;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06),
+    0 32px 80px rgba(0,0,0,.6),
+    0 0 60px rgba(196,154,60,.05);
+  overflow:hidden;
+}
+.browser-bar{
+  background:#161E2E;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  padding:10px 14px;
+  display:flex;align-items:center;gap:10px;
+}
+.browser-dots{display:flex;gap:5px}
+.browser-dots i{
+  display:block;width:9px;height:9px;border-radius:50%;
+}
+.browser-url{
+  flex:1;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:5px;padding:4px 10px;
+  font-size:.65rem;color:rgba(255,255,255,.35);
+  font-family:'Inter',sans-serif;
+}
+
+.desk-content{padding:0}
+
+/* mini site inside desktop */
+.ms-nav{
+  background:#08172E;
+  padding:8px 14px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.ms-logo{
+  font-size:.65rem;font-weight:800;color:#fff;
+  letter-spacing:-.02em;font-family:'Inter',sans-serif;
+}
+.ms-logo .ms-dot{color:var(--gold)}
+.ms-links{display:flex;gap:8px}
+.ms-links span{font-size:.45rem;color:rgba(255,255,255,.4);font-family:'Inter',sans-serif}
+
+.ms-hero{
+  background:linear-gradient(135deg,#08172E 0%,#0F2444 100%);
+  padding:20px 14px 18px;
+  position:relative;overflow:hidden;
+}
+.ms-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(196,154,60,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(196,154,60,.04) 1px, transparent 1px);
+  background-size:20px 20px;
+}
+.ms-hero-h{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:.9rem;color:#fff;line-height:1.25;
+  letter-spacing:-.01em;position:relative;z-index:1;margin-bottom:6px;
+}
+.ms-hero-h em{font-style:italic;color:var(--gold-light)}
+.ms-hero-sub{font-size:.45rem;color:rgba(255,255,255,.45);line-height:1.5;font-family:'Inter',sans-serif;position:relative;z-index:1;margin-bottom:10px}
+.ms-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  background:#25D366;color:#fff;border-radius:4px;
+  padding:5px 10px;font-size:.5rem;font-weight:700;
+  font-family:'Inter',sans-serif;position:relative;z-index:1;width:fit-content;
+}
+.ms-chips{
+  display:flex;gap:6px;padding:10px 14px 8px;
+  background:#F8F6F1;
+  border-top:1px solid rgba(12,31,63,.07);
+}
+.ms-chip{
+  background:#fff;border:1px solid rgba(12,31,63,.08);
+  border-radius:5px;padding:5px 8px;
+  text-align:center;flex:1;
+}
+.ms-chip-icon{font-size:.7rem;margin-bottom:1px}
+.ms-chip-label{font-size:.38rem;font-weight:600;color:#08172E;font-family:'Inter',sans-serif;display:block}
+.ms-pricing{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:5px;
+  padding:8px 14px 12px;background:#fff;
+}
+.ms-price-card{border:1px solid rgba(12,31,63,.09);border-radius:4px;padding:6px 5px;text-align:center}
+.ms-price-card.feat{background:#08172E;border-color:#08172E}
+.ms-pname{font-size:.38rem;font-weight:600;text-transform:uppercase;color:rgba(12,31,63,.45);font-family:'Inter',sans-serif;margin-bottom:1px}
+.ms-price-card.feat .ms-pname{color:rgba(255,255,255,.4)}
+.ms-pamt{font-size:.62rem;font-weight:800;color:#08172E;font-family:'Inter',sans-serif}
+.ms-price-card.feat .ms-pamt{color:#fff}
+
+/* Mobile mockup - floating, rotated */
+.mob-mockup{
+  position:absolute;
+  right:-28px;bottom:20px;
+  z-index:4;
+  width:110px;
+  background:#0F1D35;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 16px 48px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.05);
+  overflow:hidden;
+  transform:rotate(3deg);
+  transition:transform .3s ease;
+}
+.mob-mockup:hover{transform:rotate(1deg) translateY(-4px)}
+.mob-notch{
+  background:#161E2E;
+  height:20px;display:flex;justify-content:center;align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.mob-notch-bar{width:36px;height:3px;background:rgba(255,255,255,.12);border-radius:2px}
+.mob-content{padding:0}
+
+.mm-nav{background:#08172E;padding:5px 8px;display:flex;justify-content:space-between;align-items:center}
+.mm-logo{font-size:.45rem;font-weight:800;color:#fff;font-family:'Inter',sans-serif}
+.mm-logo .mm-dot{color:var(--gold)}
+.mm-ham{display:flex;flex-direction:column;gap:2px}
+.mm-ham i{display:block;width:10px;height:1px;background:rgba(255,255,255,.5)}
+
+.mm-hero{background:linear-gradient(135deg,#08172E,#0F2444);padding:12px 8px 10px}
+.mm-h{font-family:'DM Serif Display',Georgia,serif;font-size:.56rem;color:#fff;line-height:1.3;letter-spacing:-.01em;margin-bottom:4px}
+.mm-h em{font-style:italic;color:var(--gold-light)}
+.mm-btn{background:#25D366;color:#fff;border-radius:3px;padding:4px 7px;font-size:.38rem;font-weight:700;font-family:'Inter',sans-serif;display:inline-block}
+
+.mm-cards{padding:6px 8px;background:#F8F6F1;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mm-card{background:#fff;border:1px solid rgba(12,31,63,.08);border-radius:4px;padding:5px 4px;text-align:center}
+.mm-card-icon{font-size:.65rem}
+.mm-card-label{font-size:.3rem;font-weight:600;color:#08172E;font-family:'Inter',sans-serif;display:block;margin-top:1px}
+
+.mm-footer{background:#08172E;padding:5px 8px;display:flex;justify-content:center}
+.mm-footer span{font-size:.35rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif}
+
+/* Floating industry badges */
+.ind-badge{
+  position:absolute;z-index:5;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;padding:9px 14px;
+  box-shadow:0 8px 32px rgba(0,0,0,.2),0 1px 0 rgba(255,255,255,.1) inset;
+  animation:float 4s ease-in-out infinite;
+}
+.ind-badge:nth-child(2){animation-delay:.8s}
+.ind-badge:nth-child(3){animation-delay:1.6s}
+.ind-badge:nth-child(4){animation-delay:2.4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.badge-tl{top:32px;left:-20px}
+.badge-tr{top:60px;right:-36px}
+.badge-bl{bottom:80px;left:-36px}
+.badge-br{bottom:40px;right:-10px}
+
+.ind-badge-icon{font-size:1.1rem;line-height:1}
+.ind-badge-text{}
+.ind-badge-text strong{display:block;font-size:.72rem;font-weight:700;color:#fff;letter-spacing:-.01em}
+.ind-badge-text span{font-size:.6rem;color:rgba(255,255,255,.45)}
+
+/* Floating metric card */
+.metric-card{
+  position:absolute;z-index:5;
+  bottom:140px;right:-44px;
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:12px;padding:12px 16px;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+  animation:float 5s ease-in-out .5s infinite;
+}
+.metric-card-row{display:flex;align-items:center;gap:10px}
+.metric-dot{width:8px;height:8px;border-radius:50%;background:#25D366;flex-shrink:0;animation:pulse 2s infinite}
+.metric-card strong{display:block;font-size:.75rem;font-weight:700;color:#fff}
+.metric-card span{font-size:.6rem;color:rgba(255,255,255,.45)}
+
+/* ═══════════════════════════════════════════════════════════
+   WHY NEXA (warm off-white)
+═══════════════════════════════════════════════════════════ */
+#why-nexa{background:var(--warm)}
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.val-card{
+  background:#fff;
+  border:1px solid var(--border-l);
+  border-radius:var(--radius-lg);
+  padding:36px 32px;
+  transition:transform .28s cubic-bezier(.2,.65,0,1),box-shadow .28s,border-color .28s;
+}
+.val-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:rgba(196,154,60,.3)}
+.val-icon{
+  width:48px;height:48px;border-radius:var(--radius-sm);
+  background:var(--gold-pale);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;margin-bottom:20px;
+  transition:transform .25s;
+}
+.val-card:hover .val-icon{transform:scale(1.08)}
+.val-card h3{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:1.125rem;color:var(--navy-deep);margin-bottom:10px;letter-spacing:-.01em;
+}
+.val-card p{font-size:.875rem;color:var(--muted);line-height:1.72}
+
+/* ═══════════════════════════════════════════════════════════
+   INDUSTRIES (white)
+═══════════════════════════════════════════════════════════ */
+#industries{background:#fff}
+.ind-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ind-card{
+  background:var(--warm);
+  border:1px solid var(--border-l);
+  border-radius:var(--radius-xl);
+  padding:40px 36px;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  transition:transform .28s cubic-bezier(.2,.65,0,1),box-shadow .28s,border-color .28s;
+}
+.ind-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),rgba(196,154,60,0));
+  opacity:0;transition:opacity .3s;
+}
+.ind-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(196,154,60,.3);background:#fff}
+.ind-card:hover::before{opacity:1}
+.ind-card-header{display:flex;align-items:flex-start;gap:18px;margin-bottom:20px}
+.ind-icon-wrap{
+  width:56px;height:56px;border-radius:14px;
+  background:var(--navy-deep);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+  box-shadow:0 4px 16px rgba(8,23,46,.25);
+  transition:transform .25s;
+}
+.ind-card:hover .ind-icon-wrap{transform:scale(1.06)}
+.ind-card-title{}
+.ind-card-title h3{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:1.2rem;color:var(--navy-deep);margin-bottom:4px;letter-spacing:-.01em;
+}
+.ind-type{
+  font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);
+}
+.ind-card p{font-size:.9375rem;color:var(--muted);line-height:1.72;margin-bottom:28px;flex:1}
+.btn-ind{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--navy-deep);
+  border:1.5px solid rgba(8,23,46,.18);
+  border-radius:var(--radius-sm);padding:10px 18px;
+  font-size:.8125rem;font-weight:600;
+  width:fit-content;
+  transition:all .22s;
+}
+.btn-ind:hover{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep);transform:translateX(3px)}
+.ind-arrow{transition:transform .22s;font-style:normal}
+.btn-ind:hover .ind-arrow{transform:translateX(4px)}
+
+/* ═══════════════════════════════════════════════════════════
+   WHY INDUSTRY SPECIFIC (deep navy)
+═══════════════════════════════════════════════════════════ */
+#why-specific{background:var(--navy-deep)}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.spec-left{}
+.spec-left .sh{margin-bottom:32px}
+.spec-pull{
+  background:rgba(196,154,60,.08);
+  border:1px solid rgba(196,154,60,.2);
+  border-left:3px solid var(--gold);
+  border-radius:var(--radius-sm);
+  padding:18px 22px;margin-top:28px;
+  font-size:.9375rem;color:rgba(255,255,255,.65);
+  line-height:1.72;font-style:italic;
+}
+.spec-items{display:flex;flex-direction:column;gap:0}
+.spec-item{
+  display:flex;gap:18px;
+  padding:24px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  transition:background .2s;
+}
+.spec-item:last-child{border-bottom:none}
+.spec-item-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+  transition:background .25s,transform .25s;
+}
+.spec-item:hover .spec-item-icon{background:rgba(196,154,60,.12);border-color:rgba(196,154,60,.2);transform:scale(1.05)}
+.spec-item-body{}
+.spec-item-body strong{
+  display:block;font-family:'DM Serif Display',Georgia,serif;
+  font-size:1rem;color:#fff;margin-bottom:5px;letter-spacing:-.01em;
+}
+.spec-item-body span{font-size:.875rem;color:rgba(255,255,255,.45);line-height:1.65}
+
+/* ═══════════════════════════════════════════════════════════
+   HOW WE WORK (warm off-white)
+═══════════════════════════════════════════════════════════ */
+#how-we-work{background:var(--warm)}
+.steps-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;position:relative;
+}
+/* Connector line */
+.steps-row::before{
+  content:'';position:absolute;
+  top:28px;left:calc(12.5%);right:calc(12.5%);
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--border-l) 15%,var(--border-l) 85%,transparent);
+}
+.step-col{
+  padding:0 20px 0 0;
+  display:flex;flex-direction:column;
+  position:relative;z-index:1;
+}
+.step-num-ring{
+  width:56px;height:56px;border-radius:50%;
+  background:#fff;
+  border:1px solid var(--border-l);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:24px;
+  box-shadow:var(--shadow-sm);
+  position:relative;
+  transition:box-shadow .25s,border-color .25s,transform .25s;
+}
+.step-col:hover .step-num-ring{
+  border-color:var(--gold);box-shadow:0 0 0 3px rgba(196,154,60,.12),var(--shadow-sm);
+  transform:translateY(-3px);
+}
+.step-num-ring::before{
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:1px dashed rgba(196,154,60,.25);
+}
+.step-num{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:1.125rem;color:var(--gold);font-weight:400;
+}
+.step-col h3{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:1.0625rem;color:var(--navy-deep);margin-bottom:8px;letter-spacing:-.01em;
+}
+.step-col p{font-size:.875rem;color:var(--muted);line-height:1.68}
+
+/* ═══════════════════════════════════════════════════════════
+   SERVICES (white)
+═══════════════════════════════════════════════════════════ */
+#services{background:#fff}
+.svc-primary{
+  background:var(--navy-deep);
+  border-radius:var(--radius-2xl);
+  padding:56px 56px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:56px;align-items:center;
+  margin-bottom:24px;
+  position:relative;overflow:hidden;
+}
+.svc-primary::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(196,154,60,.03) 1px, transparent 1px),linear-gradient(90deg,rgba(196,154,60,.03) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.svc-primary::after{
+  content:'';position:absolute;top:-120px;right:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(28,58,104,.55) 0%,transparent 70%);
+  pointer-events:none;
+}
+.svc-pl{position:relative;z-index:1}
+.svc-badge{
+  display:inline-block;
+  font-size:.625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 12px;border-radius:100px;margin-bottom:18px;
+}
+.svc-badge-gold{background:rgba(196,154,60,.15);color:var(--gold-light)}
+.svc-badge-slate{background:var(--slate);color:var(--muted)}
+.svc-pl h3{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:2.1rem;color:#fff;line-height:1.12;
+  letter-spacing:-.025em;margin-bottom:18px;
+}
+.svc-pl p{font-size:.9375rem;color:rgba(255,255,255,.55);line-height:1.72;margin-bottom:32px}
+.svc-pr{position:relative;z-index:1}
+.svc-feats{display:flex;flex-direction:column;gap:0}
+.svc-feat{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.svc-feat:last-child{border-bottom:none}
+.svc-chk{
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(196,154,60,.15);border:1px solid rgba(196,154,60,.25);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
+}
+.svc-chk svg{stroke:var(--gold-light)}
+.svc-feat-txt strong{display:block;font-size:.875rem;font-weight:600;color:#fff;margin-bottom:3px}
+.svc-feat-txt span{font-size:.8125rem;color:rgba(255,255,255,.4)}
+
+/* Growth services divider */
+.growth-sep{
+  display:flex;align-items:center;gap:18px;
+  margin-bottom:20px;
+}
+.gsep-line{flex:1;height:1px;background:var(--border-l)}
+.gsep-label{
+  font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);white-space:nowrap;padding:0 4px;
+}
+
+.svc-sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc-sec-card{
+  background:var(--warm);border:1px solid var(--border-l);
+  border-radius:var(--radius-lg);padding:28px 24px;
+  transition:transform .28s,box-shadow .28s,border-color .28s;
+}
+.svc-sec-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(8,23,46,.18)}
+.svc-sec-card h4{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:1rem;color:var(--navy-deep);margin-bottom:8px;letter-spacing:-.01em;
+}
+.svc-sec-card p{font-size:.8125rem;color:var(--muted);line-height:1.65}
+
+/* ═══════════════════════════════════════════════════════════
+   PRICING (warm off-white)
+═══════════════════════════════════════════════════════════ */
+#pricing{background:var(--warm)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.price-card{
+  background:#fff;border:1px solid var(--border-l);
+  border-radius:var(--radius-xl);padding:36px 32px;
+  display:flex;flex-direction:column;
+  transition:transform .28s,box-shadow .28s;
+}
+.price-card:hover:not(.price-feat){transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.price-feat{
+  background:var(--navy-deep);border-color:var(--navy-deep);
+  transform:scale(1.035);
+  box-shadow:var(--shadow-xl);
+  position:relative;
+}
+.price-feat-pill{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:var(--navy-deep);
+  font-size:.625rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 16px;border-radius:100px;white-space:nowrap;
+}
+.price-badge{
+  display:inline-block;font-size:.625rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 10px;border-radius:100px;margin-bottom:20px;
+}
+.pb-gold{background:var(--gold-pale);color:var(--gold)}
+.pb-feat{background:rgba(196,154,60,.18);color:var(--gold-light)}
+.pb-mute{background:var(--slate);color:var(--muted)}
+.price-plan{
+  font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+}
+.price-feat .price-plan{color:rgba(255,255,255,.4)}
+.price-amount{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:2.75rem;color:var(--navy-deep);
+  letter-spacing:-.025em;line-height:1;
+}
+.price-feat .price-amount{color:#fff}
+.price-per{font-size:.8125rem;color:var(--muted);margin-top:5px;margin-bottom:8px}
+.price-feat .price-per{color:rgba(255,255,255,.38)}
+.price-desc{font-size:.875rem;color:var(--muted);line-height:1.6;margin-bottom:24px}
+.price-feat .price-desc{color:rgba(255,255,255,.52)}
+.price-divider{height:1px;background:var(--border-l);margin-bottom:22px}
+.price-feat .price-divider{background:rgba(255,255,255,.1)}
+.price-inc-label{
+  font-size:.625rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;
+}
+.price-feat .price-inc-label{color:rgba(255,255,255,.3)}
+.price-list{flex:1;display:flex;flex-direction:column;margin-bottom:28px}
+.price-list li{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:9px 0;border-bottom:1px solid var(--border-l);
+  font-size:.875rem;color:var(--muted);line-height:1.4;
+}
+.price-feat .price-list li{border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.62)}
+.price-list li:last-child{border-bottom:none}
+.pli-check{color:var(--gold);flex-shrink:0;margin-top:1px;font-size:.75rem;font-weight:700}
+.btn-price{
+  display:block;text-align:center;
+  padding:13px;border-radius:10px;
+  font-family:'Inter',sans-serif;font-weight:700;font-size:.875rem;
+  text-decoration:none;transition:all .22s;
+}
+.bprice-outline{border:1.5px solid var(--border-l);color:var(--navy-deep)}
+.bprice-outline:hover{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep)}
+.bprice-wa{background:#25D366;color:#fff;box-shadow:0 2px 12px rgba(37,211,102,.25)}
+.bprice-wa:hover{background:#20bd5a;box-shadow:0 6px 20px rgba(37,211,102,.35)}
+.bprice-ghost{border:1.5px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7)}
+.bprice-ghost:hover{border-color:rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.06)}
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT (deep navy)
+═══════════════════════════════════════════════════════════ */
+#about{background:var(--navy-deep)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-visual{display:flex;flex-direction:column;gap:16px}
+.about-quote-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius-xl);padding:40px 36px;
+  position:relative;overflow:hidden;
+}
+.about-quote-card::before{
+  content:'';position:absolute;top:0;left:0;width:3px;height:100%;
+  background:linear-gradient(180deg,var(--gold),rgba(196,154,60,0));
+}
+.aq-quote{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:1.3rem;color:#fff;line-height:1.5;
+  letter-spacing:-.01em;margin-bottom:20px;
+}
+.aq-quote em{font-style:italic;color:var(--gold-light)}
+.aq-chips{display:flex;flex-wrap:wrap;gap:7px}
+.aq-chip{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:100px;padding:5px 13px;
+  font-size:.75rem;font-weight:500;color:rgba(255,255,255,.5);
+}
+.about-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-stat{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius-md);padding:20px;
+  transition:background .25s,border-color .25s;
+}
+.about-stat:hover{background:rgba(196,154,60,.07);border-color:rgba(196,154,60,.2)}
+.about-stat-icon{font-size:1.3rem;margin-bottom:8px}
+.about-stat strong{display:block;font-family:'DM Serif Display',Georgia,serif;font-size:.95rem;color:#fff;margin-bottom:3px;letter-spacing:-.01em}
+.about-stat span{font-size:.75rem;color:rgba(255,255,255,.4)}
+
+.about-text{}
+.about-text p{font-size:.9375rem;color:rgba(255,255,255,.55);line-height:1.78;margin-bottom:20px}
+.about-text p:last-of-type{margin-bottom:28px}
+.about-text strong{color:rgba(255,255,255,.85);font-weight:600}
+.about-values{display:flex;flex-direction:column;gap:10px}
+.about-val{
+  display:flex;align-items:center;gap:12px;
+  font-size:.875rem;color:rgba(255,255,255,.6);
+}
+.av-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTACT (white)
+═══════════════════════════════════════════════════════════ */
+#contact{background:#fff}
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:start}
+.contact-left h2{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:clamp(2rem,3.2vw,2.9rem);
+  color:var(--navy-deep);line-height:1.1;letter-spacing:-.025em;margin-bottom:18px;
+}
+.contact-left p{font-size:.9375rem;color:var(--muted);line-height:1.72;margin-bottom:36px}
+
+.wa-cta-block{
+  background:var(--navy-deep);
+  border-radius:var(--radius-xl);
+  padding:36px 32px;
+  display:flex;flex-direction:column;gap:20px;
+}
+.wa-cta-top{display:flex;align-items:flex-start;gap:14px}
+.wa-icon-wrap{
+  width:52px;height:52px;border-radius:12px;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  box-shadow:0 4px 16px rgba(37,211,102,.35);
+}
+.wa-cta-copy strong{display:block;font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;color:#fff;margin-bottom:4px;letter-spacing:-.01em}
+.wa-cta-copy span{font-size:.8125rem;color:rgba(255,255,255,.5);line-height:1.6}
+
+.wa-main-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:#25D366;color:#fff;
+  font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;
+  padding:15px 24px;border-radius:10px;
+  text-decoration:none;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(37,211,102,.3);
+}
+.wa-main-btn:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.4)}
+
+.wa-response{
+  display:flex;align-items:center;gap:8px;padding-top:4px;
+}
+.resp-dot{width:6px;height:6px;border-radius:50%;background:#25D366;flex-shrink:0;animation:pulse 2.4s infinite}
+.wa-response span{font-size:.8125rem;color:rgba(255,255,255,.4)}
+
+.contact-info-stack{display:flex;flex-direction:column;gap:14px}
+.ci-card{
+  display:flex;align-items:flex-start;gap:14px;
+  background:var(--warm);border:1px solid var(--border-l);
+  border-radius:var(--radius-md);padding:18px 20px;
+  transition:border-color .25s,box-shadow .25s;
+}
+.ci-card:hover{border-color:rgba(8,23,46,.18);box-shadow:var(--shadow-sm)}
+.ci-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--slate);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0;
+}
+.ci-text label{
+  display:block;font-size:.625rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:3px;
+}
+.ci-text span{font-size:.875rem;color:var(--navy-deep);font-weight:500}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════ */
+footer{
+  background:#040D1C;
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:60px 0 32px;
+}
+.foot-inner{max-width:1200px;margin:0 auto;padding:0 32px}
+.foot-top{
+  display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;
+  gap:40px;padding-bottom:48px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  margin-bottom:32px;
+}
+.foot-brand{}
+.foot-logo{
+  font-family:'Inter',sans-serif;font-weight:700;font-size:1.0625rem;
+  letter-spacing:-.025em;color:#fff;margin-bottom:10px;
+  display:flex;align-items:baseline;gap:1px;
+}
+.foot-logo .dot{color:var(--gold)}
+.foot-tag{font-size:.8125rem;color:rgba(255,255,255,.3);line-height:1.65;max-width:230px}
+.foot-col h5{
+  font-size:.625rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.28);margin-bottom:16px;
+}
+.foot-col ul{display:flex;flex-direction:column;gap:10px}
+.foot-col ul a{font-size:.875rem;color:rgba(255,255,255,.5);transition:color .2s}
+.foot-col ul a:hover{color:rgba(255,255,255,.85)}
+.foot-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.78rem;color:rgba(255,255,255,.22);
+}
+.foot-wa{
+  display:inline-flex;align-items:center;gap:7px;
+  color:rgba(255,255,255,.38);font-size:.8125rem;font-weight:500;
+  transition:color .2s;
+}
+.foot-wa:hover{color:#25D366}
+
+/* ═══════════════════════════════════════════════════════════
+   FLOATING WA BUTTON
+═══════════════════════════════════════════════════════════ */
+#wa-fab{
+  position:fixed;bottom:28px;right:28px;z-index:8000;
+  width:58px;height:58px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.45);
+  transition:transform .2s,box-shadow .2s;
+  animation:waping 3.5s ease-in-out 3s infinite;
+}
+@keyframes waping{
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.3)}
+  50%{box-shadow:0 4px 20px rgba(37,211,102,.45),0 0 0 14px rgba(37,211,102,0)}
+}
+#wa-fab:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,.55);animation:none}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION TRANSITIONS — subtle gradient bridges
+═══════════════════════════════════════════════════════════ */
+.sec-bridge-dn{
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(196,154,60,.2),transparent);
+}
+.sec-bridge-up{
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(8,23,46,.08),transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM SECTION DIVIDERS
+═══════════════════════════════════════════════════════════ */
+.divider{
+  width:48px;height:2px;border-radius:2px;
+  background:var(--gold);margin-top:16px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .hero-inner{gap:40px}
+  .badge-tl{left:-10px}
+  .badge-bl{left:-10px}
+  .badge-tr{right:-10px}
+  .badge-br{right:-10px}
+  .metric-card{right:-10px}
+}
+@media(max-width:960px){
+  .wrap{padding:0 24px}
+  .nav-links,.nav-btn{display:none}
+  .hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:52px;padding:64px 0 80px}
+  .hero-visual{height:480px}
+  .badge-tl{left:0;top:12px}
+  .badge-bl{left:0;bottom:60px}
+  .badge-tr{right:0;top:44px}
+  .badge-br{right:0;bottom:20px}
+  .mob-mockup{right:-8px}
+  .metric-card{right:-8px}
+  .val-grid{grid-template-columns:1fr}
+  .ind-grid{grid-template-columns:1fr}
+  .spec-grid{grid-template-columns:1fr;gap:48px}
+  .svc-primary{grid-template-columns:1fr;padding:36px 32px;gap:36px}
+  .svc-sec-grid{grid-template-columns:1fr}
+  .price-grid{grid-template-columns:1fr}
+  .price-feat{transform:none}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:640px){
+  .sec{padding:72px 0}
+  .hero-h1{font-size:2.5rem}
+  .steps-row{grid-template-columns:1fr 1fr;gap:32px}
+  .steps-row::before{display:none}
+  .hero-visual{height:400px}
+  .desk-mockup{max-width:320px}
+  .mob-mockup{width:90px;right:-8px}
+  .about-stat-row{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;gap:12px;text-align:center}
+}
+@media(max-width:480px){
+  .wrap{padding:0 18px}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .steps-row{grid-template-columns:1fr}
+  .badge-tl,.badge-bl,.badge-tr,.badge-br,.metric-card,.mob-mockup{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .rv,.ind-badge,.metric-card,#wa-fab{animation:none;transition:none;opacity:1;transform:none}
+  .rv{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+<nav id="topnav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="NEXA WebWorks home">
+      <span class="nx">NEXA</span><span class="dot">.</span><span>WebWorks</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/919999999999?text=Hi%2C+I%27d+like+to+discuss+a+website+for+my+business." class="nav-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat on WhatsApp
+    </a>
+    <button class="hamburger" id="hbg" aria-label="Open menu" aria-expanded="false" aria-controls="mob-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mob-menu" id="mob-nav" role="menu">
+    <a href="#industries" onclick="closeMob()">Industries</a>
+    <a href="#services" onclick="closeMob()">Services</a>
+    <a href="#pricing" onclick="closeMob()">Pricing</a>
+    <a href="#about" onclick="closeMob()">About</a>
+    <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="https://wa.me/919999999999?text=Hi%2C+I%27d+like+to+discuss+a+website." class="mob-cta" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-mesh"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
+    <div class="hero-noise"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-inner">
+
+      <!-- Copy -->
+      <div class="hero-copy">
+        <div class="hero-eyebrow">
+          <div class="eyebrow-pulse" aria-hidden="true"></div>
+          <span>Business Websites · India</span>
+        </div>
+        <h1 class="hero-h1">
+          Your business deserves a website that <em>works as hard as you do.</em>
+        </h1>
+        <p class="hero-sub">
+          We build professional websites for local businesses — so your customers can find you, understand what you offer, and reach out with confidence.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/919999999999?text=Hi%2C+I%27d+like+to+discuss+a+website+for+my+business." class="btn btn-wa" target="_blank" rel="noopener noreferrer">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <a href="#pricing" class="btn btn-outline-light">See pricing</a>
+        </div>
+        <div class="hero-trust" role="list" aria-label="Industries we specialise in">
+          <span class="hero-trust-label">Specialist in:</span>
+          <span class="trust-chip" role="listitem"><span aria-hidden="true">💈</span> Hair Clinics</span>
+          <span class="trust-chip" role="listitem"><span aria-hidden="true">🦷</span> Dentists</span>
+          <span class="trust-chip" role="listitem"><span aria-hidden="true">🛋</span> Interior Designers</span>
+          <span class="trust-chip" role="listitem"><span aria-hidden="true">🏗</span> Builders</span>
+        </div>
+      </div>
+
+      <!-- Visual Composition -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="mockup-glow"></div>
+
+        <!-- Floating industry badges -->
+        <div class="ind-badge badge-tl">
+          <div class="ind-badge-icon">💈</div>
+          <div class="ind-badge-text">
+            <strong>Hair Clinics</strong>
+            <span>Consultation-ready</span>
+          </div>
+        </div>
+        <div class="ind-badge badge-bl">
+          <div class="ind-badge-icon">🛋</div>
+          <div class="ind-badge-text">
+            <strong>Interiors</strong>
+            <span>Portfolio-first design</span>
+          </div>
+        </div>
+
+        <!-- Desktop mockup -->
+        <div class="desk-mockup">
+          <div class="browser-bar">
+            <div class="browser-dots">
+              <i style="background:#FF5F57"></i>
+              <i style="background:#FEBC2E"></i>
+              <i style="background:#28C840"></i>
+            </div>
+            <div class="browser-url">yourclinic.nexawebworks.in</div>
+          </div>
+          <div class="desk-content">
+            <div class="ms-nav">
+              <div class="ms-logo">NEXA<span class="ms-dot">.</span>WebWorks</div>
+              <div class="ms-links">
+                <span>Services</span><span>About</span><span>Contact</span>
+              </div>
+            </div>
+            <div class="ms-hero">
+              <div class="ms-hero-h">Your clinic, <em>beautifully presented</em> online.</div>
+              <div class="ms-hero-sub">Professional website for hair clinics and aesthetic practices across India.</div>
+              <div class="ms-btn">
+                <svg width="7" height="7" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Chat on WhatsApp
+              </div>
+            </div>
+            <div class="ms-chips">
+              <div class="ms-chip"><div class="ms-chip-icon">💈</div><span class="ms-chip-label">Hair Clinics</span></div>
+              <div class="ms-chip"><div class="ms-chip-icon">🦷</div><span class="ms-chip-label">Dentists</span></div>
+              <div class="ms-chip"><div class="ms-chip-icon">🛋</div><span class="ms-chip-label">Interiors</span></div>
+              <div class="ms-chip"><div class="ms-chip-icon">🏗</div><span class="ms-chip-label">Builders</span></div>
+            </div>
+            <div class="ms-pricing">
+              <div class="ms-price-card"><div class="ms-pname">Starter</div><div class="ms-pamt">₹4,999</div></div>
+              <div class="ms-price-card feat"><div class="ms-pname">Business</div><div class="ms-pamt">₹7,999</div></div>
+              <div class="ms-price-card"><div class="ms-pname">Custom</div><div class="ms-pamt" style="font-size:.48rem;line-height:1.3;padding-top:2px">Let's talk</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating mobile mockup -->
+        <div class="mob-mockup">
+          <div class="mob-notch"><div class="mob-notch-bar"></div></div>
+          <div class="mob-content">
+            <div class="mm-nav">
+              <div class="mm-logo">NEXA<span class="mm-dot">.</span>W</div>
+              <div class="mm-ham"><i></i><i></i><i></i></div>
+            </div>
+            <div class="mm-hero">
+              <div class="mm-h">Your business,<br><em>online properly.</em></div>
+              <div class="mm-btn">Chat on WhatsApp</div>
+            </div>
+            <div class="mm-cards">
+              <div class="mm-card"><div class="mm-card-icon">💈</div><span class="mm-card-label">Hair Clinics</span></div>
+              <div class="mm-card"><div class="mm-card-icon">🦷</div><span class="mm-card-label">Dentists</span></div>
+              <div class="mm-card"><div class="mm-card-icon">🛋</div><span class="mm-card-label">Interiors</span></div>
+              <div class="mm-card"><div class="mm-card-icon">🏗</div><span class="mm-card-label">Builders</span></div>
+            </div>
+            <div class="mm-footer"><span>nexawebworks.in</span></div>
+          </div>
+        </div>
+
+        <!-- Floating metric card -->
+        <div class="metric-card">
+          <div class="metric-card-row">
+            <div class="metric-dot"></div>
+            <div>
+              <strong>Live in 7–10 days</strong>
+              <span>From first chat to launched</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional badge right -->
+        <div class="ind-badge badge-tr">
+          <div class="ind-badge-icon">🦷</div>
+          <div class="ind-badge-text">
+            <strong>Dentists</strong>
+            <span>Patient-first layout</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="sec-bridge-up" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     WHY NEXA
+══════════════════════════════════════════ -->
+<section id="why-nexa" class="sec" aria-labelledby="wn-h">
+  <div class="wrap">
+    <div class="sh sh-c rv">
+      <span class="f-label">Why NEXA WebWorks</span>
+      <h2 id="wn-h">How we're different from the rest</h2>
+      <p>We're not a generalist agency. We work with four types of local business — and only four. That focus is deliberate, and it produces better results.</p>
+    </div>
+    <div class="val-grid">
+      <div class="val-card rv d1">
+        <div class="val-icon" aria-hidden="true">🎯</div>
+        <h3>Built for your industry</h3>
+        <p>We work with hair clinics, dentists, interior designers, and builders. That means your website is shaped around what your specific clients look for — not adapted from a different sector.</p>
+      </div>
+      <div class="val-card rv d2">
+        <div class="val-icon" aria-hidden="true">📞</div>
+        <h3>Easy for clients to reach you</h3>
+        <p>Every site we build makes contact straightforward — WhatsApp, phone, enquiry form. Whatever works best for your business is clear, prominent, and ready to use.</p>
+      </div>
+      <div class="val-card rv d3">
+        <div class="val-icon" aria-hidden="true">🧭</div>
+        <h3>No unnecessary complexity</h3>
+        <p>You won't be handed a complicated system to manage after we're done. A clean website, a clear process, and a result that reflects your business well.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-bridge-up" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     INDUSTRIES
+══════════════════════════════════════════ -->
+<section id="industries" class="sec" aria-labelledby="ind-h">
+  <div class="wrap">
+    <div class="sh rv">
+      <span class="f-label">Who we build for</span>
+      <h2 id="ind-h">We specialise in four industries</h2>
+      <p>We chose to focus on a small set of business types because depth matters more than breadth. Every decision we make is informed by what works in your sector.</p>
+      <div class="divider" aria-hidden="true"></div>
+    </div>
+    <div class="ind-grid">
+
+      <article class="ind-card rv d1">
+        <div class="ind-card-header">
+          <div class="ind-icon-wrap" aria-hidden="true">💈</div>
+          <div class="ind-card-title">
+            <h3>Hair Clinics</h3>
+            <span class="ind-type">Hair · Aesthetic · Trichology</span>
+          </div>
+        </div>
+        <p>Clients research hair treatments carefully before they commit. A professional website builds the credibility that turns that research into a consultation request — before a competitor gets the call.</p>
+        <a href="https://wa.me/919999999999?text=Hi%2C+I+run+a+hair+clinic+and+would+like+a+website." class="btn-ind" target="_blank" rel="noopener noreferrer">
+          Get a website for your clinic <i class="ind-arrow">→</i>
+        </a>
+      </article>
+
+      <article class="ind-card rv d2">
+        <div class="ind-card-header">
+          <div class="ind-icon-wrap" aria-hidden="true">🦷</div>
+          <div class="ind-card-title">
+            <h3>Dentists</h3>
+            <span class="ind-type">Dental · Orthodontic · Oral Care</span>
+          </div>
+        </div>
+        <p>New patients decide on a dentist before they ever pick up the phone. Your website is often the first impression — it should be professional enough to make them feel comfortable before they walk in.</p>
+        <a href="https://wa.me/919999999999?text=Hi%2C+I+run+a+dental+practice+and+would+like+a+website." class="btn-ind" target="_blank" rel="noopener noreferrer">
+          Get a website for your practice <i class="ind-arrow">→</i>
+        </a>
+      </article>
+
+      <article class="ind-card rv d3">
+        <div class="ind-card-header">
+          <div class="ind-icon-wrap" aria-hidden="true">🛋</div>
+          <div class="ind-card-title">
+            <h3>Interior Designers</h3>
+            <span class="ind-type">Residential · Commercial · Hospitality</span>
+          </div>
+        </div>
+        <p>Your work speaks for itself — but only if people can see it properly. A well-designed website gives your portfolio room to breathe and helps potential clients understand your aesthetic before the first conversation.</p>
+        <a href="https://wa.me/919999999999?text=Hi%2C+I%27m+an+interior+designer+and+would+like+a+website." class="btn-ind" target="_blank" rel="noopener noreferrer">
+          Get a website for your studio <i class="ind-arrow">→</i>
+        </a>
+      </article>
+
+      <article class="ind-card rv d4">
+        <div class="ind-card-header">
+          <div class="ind-icon-wrap" aria-hidden="true">🏗</div>
+          <div class="ind-card-title">
+            <h3>Builders</h3>
+            <span class="ind-type">Residential · Commercial · Renovation</span>
+          </div>
+        </div>
+        <p>Projects are your strongest proof. A website that showcases completed work, your process, and how to reach you builds the kind of credibility that gets you considered for the next job before you've had the meeting.</p>
+        <a href="https://wa.me/919999999999?text=Hi%2C+I%27m+a+builder+and+would+like+a+website." class="btn-ind" target="_blank" rel="noopener noreferrer">
+          Get a website for your business <i class="ind-arrow">→</i>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="sec-bridge-dn" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     WHY INDUSTRY-SPECIFIC
+══════════════════════════════════════════ -->
+<section id="why-specific" class="sec" aria-labelledby="ws-h">
+  <div class="wrap">
+    <div class="spec-grid">
+      <div class="spec-left">
+        <div class="sh sh-d rv">
+          <span class="f-label">The difference it makes</span>
+          <h2 id="ws-h">Different businesses need different websites.</h2>
+          <p>A template from a website builder gives every business the same starting point. Which means none of them get something built for how their clients actually think and decide.</p>
+        </div>
+        <div class="spec-pull rv d1">
+          "A website built for a builder looks nothing like one built for a dentist. The layout, the content, the calls to action — all of it needs to match how that industry's clients behave."
+        </div>
+      </div>
+      <div class="spec-items rv d2">
+        <div class="spec-item">
+          <div class="spec-item-icon" aria-hidden="true">💈</div>
+          <div class="spec-item-body">
+            <strong>Hair Clinics need consultation requests</strong>
+            <span>Clients want to feel informed and confident before they book. Clear treatment information and an easy contact path is what converts the visit.</span>
+          </div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item-icon" aria-hidden="true">🦷</div>
+          <div class="spec-item-body">
+            <strong>Dentists need appointment enquiries</strong>
+            <span>Patients are often apprehensive. A calm, professional website reassures them and makes reaching out feel like a natural next step.</span>
+          </div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item-icon" aria-hidden="true">🛋</div>
+          <div class="spec-item-body">
+            <strong>Interior designers need portfolio space</strong>
+            <span>Clients hire designers based on visual fit. The website needs to lead with work, not text — and let the aesthetic make the first impression.</span>
+          </div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item-icon" aria-hidden="true">🏗</div>
+          <div class="spec-item-body">
+            <strong>Builders need project showcases</strong>
+            <span>Completed work is the most convincing thing a builder can show. A website should lead with that — not a wall of copy about experience.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-bridge-up" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     HOW WE WORK
+══════════════════════════════════════════ -->
+<section id="how-we-work" class="sec" aria-labelledby="hw-h">
+  <div class="wrap">
+    <div class="sh sh-c rv">
+      <span class="f-label">How we work</span>
+      <h2 id="hw-h">Four steps, no surprises</h2>
+      <p>We keep the process simple — because it should be. You run your business. We build the website.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step-col rv d1">
+        <div class="step-num-ring" aria-hidden="true"><span class="step-num">1</span></div>
+        <h3>Discuss</h3>
+        <p>You tell us about your business, your clients, and what you need. We ask the right questions so nothing important gets missed.</p>
+      </div>
+      <div class="step-col rv d2">
+        <div class="step-num-ring" aria-hidden="true"><span class="step-num">2</span></div>
+        <h3>Plan</h3>
+        <p>We map out your website's structure and content before anything is designed. No guessing later — everything agreed upfront.</p>
+      </div>
+      <div class="step-col rv d3">
+        <div class="step-num-ring" aria-hidden="true"><span class="step-num">3</span></div>
+        <h3>Build</h3>
+        <p>We design and develop your site, sharing progress as we go. You give feedback. We refine until it's exactly right.</p>
+      </div>
+      <div class="step-col rv d4">
+        <div class="step-num-ring" aria-hidden="true"><span class="step-num">4</span></div>
+        <h3>Launch</h3>
+        <p>Your website goes live. We handle the technical side so everything works the moment it's published — domain, hosting, and all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-bridge-up" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════ -->
+<section id="services" class="sec" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="sh rv">
+      <span class="f-label">Services</span>
+      <h2 id="svc-h">What we build</h2>
+      <p>Business websites are our primary work. For clients who want to expand further online, we offer a focused set of growth services alongside.</p>
+      <div class="divider" aria-hidden="true"></div>
+    </div>
+
+    <div class="svc-primary rv">
+      <div class="svc-pl">
+        <div class="svc-badge svc-badge-gold">Primary Service</div>
+        <h3>Business Websites</h3>
+        <p>We design and build professional websites tailored to your industry. Every site is built to represent your business accurately, load without friction, and make it as easy as possible for customers to contact you.</p>
+        <a href="https://wa.me/919999999999?text=Hi%2C+I%27d+like+to+discuss+a+business+website." class="btn btn-wa" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Discuss your website
+        </a>
+      </div>
+      <div class="svc-pr">
+        <ul class="svc-feats" aria-label="What's included">
+          <li class="svc-feat">
+            <div class="svc-chk" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="svc-feat-txt"><strong>Designed for your industry</strong><span>Layout and content matched to how your clients make decisions</span></div>
+          </li>
+          <li class="svc-feat">
+            <div class="svc-chk" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="svc-feat-txt"><strong>Built around contact</strong><span>WhatsApp, phone and enquiry — clearly placed and easy to use</span></div>
+          </li>
+          <li class="svc-feat">
+            <div class="svc-chk" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="svc-feat-txt"><strong>Works on every device</strong><span>Designed first for mobile — where most of your clients will find you</span></div>
+          </li>
+          <li class="svc-feat">
+            <div class="svc-chk" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="svc-feat-txt"><strong>Findable on Google</strong><span>Built with the right structure so search engines understand your business</span></div>
+          </li>
+          <li class="svc-feat">
+            <div class="svc-chk" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="svc-feat-txt"><strong>Domain and hosting handled</strong><span>We take care of the technical setup — you don't have to</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="growth-sep rv">
+      <div class="gsep-line"></div>
+      <span class="gsep-label">Growth Services — For Businesses Expanding Online</span>
+      <div class="gsep-line"></div>
+    </div>
+
+    <div class="svc-sec-grid">
+      <div class="svc-sec-card rv d1">
+        <div class="svc-badge svc-badge-slate" style="margin-bottom:14px">Amazon</div>
+        <h4>Amazon Seller Central</h4>
+        <p>Account setup, listing creation and seller management for businesses ready to sell products on Amazon India.</p>
+      </div>
+      <div class="svc-sec-card rv d2">
+        <div class="svc-badge svc-badge-slate" style="margin-bottom:14px">Amazon</div>
+        <h4>Amazon Ads</h4>
+        <p>Sponsored product and brand campaigns to improve your visibility and drive sales within your budget.</p>
+      </div>
+      <div class="svc-sec-card rv d3">
+        <div class="svc-badge svc-badge-slate" style="margin-bottom:14px">Google</div>
+        <h4>Google Ads</h4>
+        <p>Search campaigns that connect your business with local customers actively looking for what you offer.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sec-bridge-dn" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     PRICING
+══════════════════════════════════════════ -->
+<section id="pricing" class="sec" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="sh sh-c rv">
+      <span class="f-label">Pricing</span>
+      <h2 id="pr-h">Clear pricing. No surprises.</h2>
+      <p>A straightforward price upfront — no negotiating afterwards. Every plan includes a professional website. The difference is scope and scale.</p>
+    </div>
+    <div class="price-grid">
+
+      <!-- Starter -->
+      <div class="price-card rv d1">
+        <div class="price-badge pb-gold">Starter</div>
+        <div class="price-plan">Getting Started</div>
+        <div class="price-amount">₹4,999</div>
+        <div class="price-per">one-time payment</div>
+        <div class="price-desc">For businesses that need a clean, professional online presence to get started.</div>
+        <div class="price-divider"></div>
+        <div class="price-inc-label">What's included</div>
+        <ul class="price-list">
+          <li><span class="pli-check" aria-hidden="true">✓</span> Up to 3 pages</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Professional custom design</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> WhatsApp &amp; contact button</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Works on mobile and desktop</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Google-ready structure</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Delivered in 7–10 days</li>
+        </ul>
+        <a href="https://wa.me/919999999999?text=Hi%2C+I%27m+interested+in+the+Starter+plan." class="btn-price bprice-outline" target="_blank" rel="noopener noreferrer">Get started</a>
+      </div>
+
+      <!-- Business (featured) -->
+      <div class="price-card price-feat rv d2">
+        <div class="price-feat-pill" aria-label="Most chosen plan">Most chosen</div>
+        <div class="price-badge pb-feat">Business</div>
+        <div class="price-plan">Growing Online</div>
+        <div class="price-amount">₹7,999</div>
+        <div class="price-per">one-time payment</div>
+        <div class="price-desc">For businesses that need more pages, more content, and a stronger foundation online.</div>
+        <div class="price-divider"></div>
+        <div class="price-inc-label">What's included</div>
+        <ul class="price-list">
+          <li><span class="pli-check" aria-hidden="true">✓</span> Up to 6 pages</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Premium industry-specific design</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> WhatsApp, phone &amp; enquiry form</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Google Maps integration</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Domain setup included</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Google Analytics connected</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Delivered in 10–14 days</li>
+        </ul>
+        <a href="https://wa.me/919999999999?text=Hi%2C+I%27m+interested+in+the+Business+plan." class="btn-price bprice-wa" target="_blank" rel="noopener noreferrer">Chat to get started</a>
+      </div>
+
+      <!-- Custom -->
+      <div class="price-card rv d3">
+        <div class="price-badge pb-mute">Custom</div>
+        <div class="price-plan">Your Project</div>
+        <div class="price-amount" style="font-size:2rem;padding-top:4px;line-height:1.1">Let's discuss</div>
+        <div class="price-per">scoped to your needs</div>
+        <div class="price-desc">For projects with specific requirements that don't fit neatly into a standard plan.</div>
+        <div class="price-divider"></div>
+        <div class="price-inc-label">Everything in Business, plus</div>
+        <ul class="price-list">
+          <li><span class="pli-check" aria-hidden="true">✓</span> Unlimited pages</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Booking or enquiry systems</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Multi-location support</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Ongoing maintenance option</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Priority turnaround</li>
+          <li><span class="pli-check" aria-hidden="true">✓</span> Scoped and priced together</li>
+        </ul>
+        <a href="https://wa.me/919999999999?text=Hi%2C+I+have+a+custom+project+to+discuss." class="btn-price bprice-outline" target="_blank" rel="noopener noreferrer">Talk to us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="sec-bridge-dn" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+<section id="about" class="sec" aria-labelledby="ab-h">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="about-visual">
+        <div class="about-quote-card rv">
+          <div class="aq-quote">
+            "We help local businesses build a <em>professional online presence</em> — without the unnecessary complexity that gets in the way."
+          </div>
+          <div class="aq-chips">
+            <span class="aq-chip">Hair Clinics</span>
+            <span class="aq-chip">Dentists</span>
+            <span class="aq-chip">Interior Designers</span>
+            <span class="aq-chip">Builders</span>
+          </div>
+        </div>
+        <div class="about-stat-row rv d2">
+          <div class="about-stat">
+            <div class="about-stat-icon" aria-hidden="true">🎯</div>
+            <strong>Four industries</strong>
+            <span>Deeply focused, by design</span>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-icon" aria-hidden="true">⚡</div>
+            <strong>7–14 day delivery</strong>
+            <span>From first chat to live</span>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-icon" aria-hidden="true">💬</div>
+            <strong>WhatsApp-first</strong>
+            <span>Simple, direct communication</span>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-icon" aria-hidden="true">🌐</div>
+            <strong>India-based</strong>
+            <span>Working with businesses nationwide</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text rv d2">
+        <span class="f-label" style="display:block;margin-bottom:14px;color:rgba(196,154,60,.8)">About NEXA WebWorks</span>
+        <h2 id="ab-h" style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.8rem,2.8vw,2.4rem);color:#fff;line-height:1.12;letter-spacing:-.025em;margin-bottom:24px">We focus on what matters for local businesses.</h2>
+        <p>NEXA WebWorks builds professional websites for local businesses that want to make a strong first impression online. We work with four specific industries because we believe that knowing your client's world in depth produces better results than spreading thin across every sector.</p>
+        <p>The process is straightforward by design. You don't need to understand web development. You need a website that accurately represents your business and makes it easy for customers to reach you. <strong>That's what we build.</strong></p>
+        <p>No jargon. No long drawn-out timelines. No handing you a complicated system to manage once we're done. Just a clean, professional website and a clear process to get there.</p>
+        <div class="about-values">
+          <div class="about-val"><div class="av-dot" aria-hidden="true"></div>Industry-focused, not generalist</div>
+          <div class="about-val"><div class="av-dot" aria-hidden="true"></div>Clean design that reflects your professionalism</div>
+          <div class="about-val"><div class="av-dot" aria-hidden="true"></div>Honest pricing with no ongoing lock-in</div>
+          <div class="about-val"><div class="av-dot" aria-hidden="true"></div>Direct, straightforward communication</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="sec-bridge-up" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section id="contact" class="sec" aria-labelledby="ct-h">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div class="contact-left rv">
+        <span class="f-label" style="display:block;margin-bottom:14px">Get in touch</span>
+        <h2 id="ct-h">Ready to get your business online properly?</h2>
+        <p>Send us a message on WhatsApp and tell us about your business. No forms, no waiting around. We'll come back to you the same day.</p>
+
+        <div class="wa-cta-block">
+          <div class="wa-cta-top">
+            <div class="wa-icon-wrap" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div class="wa-cta-copy">
+              <strong>Start with a quick chat</strong>
+              <span>Tell us about your business and what you're looking for. No forms, no sales calls.</span>
+            </div>
+          </div>
+          <a href="https://wa.me/919999999999?text=Hi+NEXA%2C+I%27d+like+to+discuss+a+website+for+my+business." class="wa-main-btn" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <div class="wa-response">
+            <div class="resp-dot" aria-hidden="true"></div>
+            <span>We typically reply within a few hours during business hours.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-info-stack rv d2">
+        <div class="ci-card">
+          <div class="ci-icon" aria-hidden="true">📧</div>
+          <div class="ci-text">
+            <label>Email</label>
+            <span>hello@nexawebworks.in</span>
+          </div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-icon" aria-hidden="true">📍</div>
+          <div class="ci-text">
+            <label>Location</label>
+            <span>India — working with businesses nationwide</span>
+          </div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-icon" aria-hidden="true">💬</div>
+          <div class="ci-text">
+            <label>Preferred contact</label>
+            <span>WhatsApp — fastest way to reach us</span>
+          </div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-icon" aria-hidden="true">🕘</div>
+          <div class="ci-text">
+            <label>Response time</label>
+            <span>Same day, usually within a few hours</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-logo"><span>NEXA</span><span class="dot">.</span><span>WebWorks</span></div>
+        <p class="foot-tag">Professional Business Websites for Growing Businesses. Focused on four industries. Built to work.</p>
+      </div>
+      <nav class="foot-col" aria-label="Quick links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="Services">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Business Websites</a></li>
+          <li><a href="#services">Amazon Seller Central</a></li>
+          <li><a href="#services">Amazon Ads</a></li>
+          <li><a href="#services">Google Ads</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="Industries">
+        <h5>Industries</h5>
+        <ul>
+          <li><a href="#industries">Hair Clinics</a></li>
+          <li><a href="#industries">Dentists</a></li>
+          <li><a href="#industries">Interior Designers</a></li>
+          <li><a href="#industries">Builders</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 NEXA WebWorks. All rights reserved.</span>
+      <a href="https://wa.me/919999999999" class="foot-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a id="wa-fab"
+   href="https://wa.me/919999999999?text=Hi+NEXA%2C+I%27d+like+to+discuss+a+website."
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+/* ── Nav scroll ── */
+const nav=document.getElementById('topnav');
+const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>20);
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+
+/* ── Mobile nav ── */
+const hbg=document.getElementById('hbg');
+const mob=document.getElementById('mob-nav');
+let open=false;
+function closeMob(){
+  open=false;mob.classList.remove('open');
+  hbg.classList.remove('open');hbg.setAttribute('aria-expanded','false');
+}
+hbg.addEventListener('click',()=>{
+  open=!open;mob.classList.toggle('open',open);
+  hbg.classList.toggle('open',open);
+  hbg.setAttribute('aria-expanded',String(open));
+});
+hbg.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();hbg.click()}});
+document.addEventListener('click',e=>{if(open&&!nav.contains(e.target))closeMob()});
+
+/* ── Scroll reveal ── */
+const rvObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rvObs.unobserve(e.target)}});
+},{threshold:0.08,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
+
+/* ── Active nav link ── */
+const secs=document.querySelectorAll('section[id]');
+const links=document.querySelectorAll('.nav-links a');
+const markActive=()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id});
+  links.forEach(a=>{
+    const match=a.getAttribute('href')==='#'+cur;
+    a.classList.toggle('active',match);
+  });
+};
+window.addEventListener('scroll',markActive,{passive:true});
+markActive();
+</script>
+</body>
+</html>
