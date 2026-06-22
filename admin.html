@@ -6,32 +6,37 @@ const RANGE = "Events!A:E";
 async function loadData() {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
 
-  const res = await fetch(url);
-  const data = await res.json();
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
 
-  console.log(data);
+    console.log(data);
 
-  const rows = data.values || [];
-  const tableBody = document.querySelector("#dataTable tbody");
+    const rows = data.values || [];
+    const tableBody = document.querySelector("#dataTable tbody");
 
-  tableBody.innerHTML = "";
+    tableBody.innerHTML = "";
 
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i];
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
 
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${row[0] || ""}</td>
-      <td>${row[1] || ""}</td>
-      <td>${row[2] || ""}</td>
-      <td>${row[3] || ""}</td>
-      <td>${row[4] || ""}</td>
-    `;
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${row[0] || ""}</td>
+        <td>${row[1] || ""}</td>
+        <td>${row[2] || ""}</td>
+        <td>${row[3] || ""}</td>
+        <td>${row[4] || ""}</td>
+      `;
 
-    tableBody.appendChild(tr);
+      tableBody.appendChild(tr);
+    }
+
+    document.getElementById("totalLeads").innerText = rows.length;
+
+  } catch (error) {
+    console.error("Dashboard Error:", error);
   }
-
-  document.getElementById("totalLeads").innerText = rows.length;
 }
 
 loadData();
