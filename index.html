@@ -1860,5 +1860,54 @@ const markActive=()=>{
 window.addEventListener('scroll',markActive,{passive:true});
 markActive();
 </script>
+   <script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxEtnzBcP50QkGDgvMXWTBn-aB8GtLeRp40auxlwhmucd5DurCaQ3Z3q4b3RgpWBCx3/exec";
+
+function getVisitorId() {
+  let id = localStorage.getItem("nexa_visitor_id");
+  if (!id) {
+    id = "v_" + Date.now() + "_" + Math.random().toString(36).substring(2,9);
+    localStorage.setItem("nexa_visitor_id", id);
+  }
+  return id;
+}
+
+function trackEvent(eventName) {
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      visitorId: getVisitorId(),
+      event: eventName,
+      page: window.location.pathname,
+      device: /Mobi|Android/i.test(navigator.userAgent)
+        ? "Mobile"
+        : "Desktop"
+    })
+  });
+}
+
+trackEvent("page_view");
+
+document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(btn => {  btn.addEventListener("click", () => {
+    trackEvent("whatsapp_click");
+  });
+});
+
+document.querySelectorAll('a[href^="tel:"]').forEach(btn => {
+  btn.addEventListener("click", () => {
+    trackEvent("phone_click");
+  });
+});
+
+document.querySelectorAll('a[href*="maps"], a[href*="google.com/maps"]').forEach(btn => {
+  btn.addEventListener("click", () => {
+    trackEvent("maps_click");
+  });
+});
+</script>
 </body>
 </html>
