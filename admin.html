@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Nexa Admin Dashboard</title>
+</head>
+<body>
+
+<h2>📊 Nexa Admin Dashboard</h2>
+
+<h3 id="totalLeads">0</h3>
+
+<table border="1" id="dataTable">
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>Visitor ID</th>
+      <th>Event</th>
+      <th>Page</th>
+      <th>Device</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
 <script>
 const SHEET_ID = "1X_1UpQu_DpsFbCvSwfoaWG__aJXVkhfFmU_ojG7IGcU";
 const API_KEY = "AIzaSyDVZRVCOCq8yW6GcYHac7ubOAxVjsZwaBY";
@@ -6,39 +31,34 @@ const RANGE = "Events!A:E";
 async function loadData() {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
 
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
+  const res = await fetch(url);
+  const data = await res.json();
 
-    console.log(data);
+  const rows = data.values || [];
+  const tableBody = document.querySelector("#dataTable tbody");
 
-    const rows = data.values || [];
-    const tableBody = document.querySelector("#dataTable tbody");
+  tableBody.innerHTML = "";
 
-    tableBody.innerHTML = "";
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
 
-    for (let i = 0; i < rows.length; i++) {
-      const row = rows[i];
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${row[0] || ""}</td>
+      <td>${row[1] || ""}</td>
+      <td>${row[2] || ""}</td>
+      <td>${row[3] || ""}</td>
+      <td>${row[4] || ""}</td>
+    `;
 
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${row[0] || ""}</td>
-        <td>${row[1] || ""}</td>
-        <td>${row[2] || ""}</td>
-        <td>${row[3] || ""}</td>
-        <td>${row[4] || ""}</td>
-      `;
-
-      tableBody.appendChild(tr);
-    }
-
-    document.getElementById("totalLeads").innerText = rows.length;
-
-  } catch (error) {
-    console.error("Dashboard Error:", error);
+    tableBody.appendChild(tr);
   }
+
+  document.getElementById("totalLeads").innerText = rows.length;
 }
 
 loadData();
-setInterval(loadData, 30000);
 </script>
+
+</body>
+</html>
