@@ -72,13 +72,13 @@
 <script>
 const SHEET_ID = "1X_1UpQu_DpsFbCvSwfoaWG__aJXVkhfFmU_ojG7IGcU";
 const API_KEY = "AIzaSyDVZRVCOCq8yW6GcYHac7ubOAxVjsZwaBY";
-const RANGE = "Sheet1!A:E";
-
+const RANGE = "Events!A:E";
 async function loadData() {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
 
   const res = await fetch(url);
   const data = await res.json();
+  console.log(data);
 
   const rows = data.values || [];
   const tableBody = document.querySelector("#dataTable tbody");
