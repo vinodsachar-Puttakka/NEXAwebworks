@@ -100,8 +100,7 @@ async function loadData() {
     tableBody.appendChild(tr);
   }
 
-  document.getElementById("totalLeads").innerText = rows.length - 1;
-}
+document.getElementById("totalLeads").innerText = rows.length;}
 
 loadData();
 setInterval(loadData, 30000);
