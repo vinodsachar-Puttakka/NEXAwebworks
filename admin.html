@@ -1,83 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Admin Dashboard - Nexa</title>
-  <style>
-    body {
-      font-family: Arial;
-      padding: 20px;
-      background: #f4f4f4;
-    }
-
-    h2 {
-      margin-bottom: 10px;
-    }
-
-    .stats {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      flex: 1;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-    }
-
-    th, td {
-      padding: 10px;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
-
-    th {
-      background: black;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-
-<h2>📊 Nexa Admin Dashboard</h2>
-
-<div class="stats">
-  <div class="card">
-    <h3 id="totalLeads">0</h3>
-    <p>Total Events</p>
-  </div>
-</div>
-
-<table id="dataTable">
-  <thead>
-    <tr>
-      <th>Timestamp</th>
-<th>Visitor ID</th>
-<th>Event</th>
-<th>Page</th>
-<th>Device</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-
 <script>
 const SHEET_ID = "1X_1UpQu_DpsFbCvSwfoaWG__aJXVkhfFmU_ojG7IGcU";
 const API_KEY = "AIzaSyDVZRVCOCq8yW6GcYHac7ubOAxVjsZwaBY";
 const RANGE = "Events!A:E";
+
 async function loadData() {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
 
   const res = await fetch(url);
   const data = await res.json();
+
   console.log(data);
 
   const rows = data.values || [];
@@ -85,7 +16,7 @@ async function loadData() {
 
   tableBody.innerHTML = "";
 
-  for (let i = 0; i < rows.length; i++)
+  for (let i = 0; i < rows.length; i++) {
     const row = rows[i];
 
     const tr = document.createElement("tr");
@@ -100,11 +31,9 @@ async function loadData() {
     tableBody.appendChild(tr);
   }
 
-document.getElementById("totalLeads").innerText = rows.length;}
+  document.getElementById("totalLeads").innerText = rows.length;
+}
 
 loadData();
 setInterval(loadData, 30000);
 </script>
-
-</body>
-</html>
